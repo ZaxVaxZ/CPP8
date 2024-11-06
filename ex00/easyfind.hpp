@@ -2,19 +2,18 @@
 #define EASYFIND_HPP
 
 #include <iostream>
+#include <algorithm>
 
-typedef std::string str;
-
-class easyfind
+template <typename T> int easyfind(T &container, int element)
 {
-	private:
+	typename T::iterator	it;
+	int						ret;
 
-	public:
-		easyfind();
-		easyfind(const easyfind &copy);
-		~easyfind();
-
-		easyfind &operator =(const easyfind &copy);
-};
+	it = std::find(container.begin(), container.end(), element);
+	ret = it - container.begin();
+	if (it == container.end())
+		return -1;
+	return ret;
+}
 
 #endif
