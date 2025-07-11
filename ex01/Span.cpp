@@ -59,16 +59,6 @@ void Span::addNumbers(int *start, int *end)
 	_A.insert(start, end);
 }
 
-void Span::addNumbers(std::multiset<int>::iterator start, std::multiset<int>::iterator end)
-{
-	for (std::multiset<int>::iterator iter = _A.begin(); iter != _A.end(); ++iter)
-		if (start == iter || end == iter)
-			throw std::exception();
-	if (_A.size() + (std::distance(start, end)) > _N)
-		throw std::exception();
-	_A.insert(start, end);
-}
-
 void Span::addRandoms(unsigned int numbers)
 {
 	if (_A.size() + numbers > _N)
@@ -82,12 +72,12 @@ unsigned int Span::size() const
 	return _N;
 }
 
-std::multiset<int>::iterator Span::begin() const
+std::multiset<int>::iterator Span::begin()
 {
 	return _A.begin();
 }
 
-std::multiset<int>::iterator Span::end() const
+std::multiset<int>::iterator Span::end()
 {
 	return _A.end();
 }

@@ -16,12 +16,11 @@ int main()
 
 	Span sp3;
 	sp3 = sp2;
-	sp3 = sp3;
 	std::cout << sp3.shortestSpan() << std::endl;
 	std::cout << sp3.longestSpan() << std::endl;
 
 	Span spr(50000);
-	// spr.addRandoms(50001);
+	spr.addRandoms(50001);
 	spr.addRandoms(50000);
 	std::cout << spr.shortestSpan() << std::endl;
 	std::cout << spr.longestSpan() << std::endl;

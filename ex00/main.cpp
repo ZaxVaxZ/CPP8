@@ -8,9 +8,12 @@ int main()
 	v.push_back(0);
 	v.push_back(3);
 	v.push_back(2);
-	std::cout << easyfind(v, 0) << "\n";
-	std::cout << easyfind(v, 1) << "\n";
-	std::cout << easyfind(v, 2) << "\n";
-	std::cout << easyfind(v, 3) << "\n";
+	for (int i = 0; i < 5; i++)
+	{
+		if (easyfind(v, i) == v.end())
+			std::cout << "Element " << i << " not found!\n";
+		else
+			std::cout << "Element " << i << " found at index " << easyfind(v, i) - v.begin() << "!!!\n";
+	}
 	return (0);
 }

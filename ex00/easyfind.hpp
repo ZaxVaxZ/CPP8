@@ -4,16 +4,14 @@
 #include <iostream>
 #include <algorithm>
 
-template <typename T> int easyfind(T &container, int element)
+template <typename T> typename T::iterator easyfind(T &container, int element)
 {
 	typename T::iterator	it;
-	int						ret;
 
-	it = std::find(container.begin(), container.end(), element);
-	ret = it - container.begin();
-	if (it == container.end())
-		return -1;
-	return ret;
+	it = container.begin();
+	while (it != container.end() && *it != element)
+		it++;
+	return it;
 }
 
 #endif

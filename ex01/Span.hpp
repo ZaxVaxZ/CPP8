@@ -25,7 +25,15 @@ class Span
 		int		shortestSpan() const;
 		void	addNumber   (int number);
 		void	addNumbers  (int *start, int *end);
-		void	addNumbers  (std::multiset<int>::iterator start, std::multiset<int>::iterator end);
+		template <typename T> void	addNumbers  (class T::iterator start, class T::iterator end)
+		{
+			for (std::multiset<int>::iterator iter = _A.begin(); iter != _A.end(); ++iter)
+				if (start == iter || end == iter)
+					throw std::exception();
+			if (_A.size() + (std::distance(start, end)) > _N)
+				throw std::exception();
+			_A.insert(start, end);
+		}
 		void	addRandoms  (unsigned int count);
 		unsigned int					size () const;
 		std::multiset<int>::iterator	begin() const;
