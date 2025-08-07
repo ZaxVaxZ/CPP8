@@ -82,6 +82,16 @@ std::multiset<int>::iterator Span::end()
 	return _A.end();
 }
 
+std::multiset<int>::const_iterator Span::begin() const
+{
+	return _A.cbegin();
+}
+
+std::multiset<int>::const_iterator Span::end() const
+{
+	return _A.cend();
+}
+
 Span &Span::operator =(const Span &copy)
 {
 	if (&copy != this)

@@ -15,5 +15,13 @@ int main()
 		else
 			std::cout << "Element " << i << " found at index " << easyfind(v, i) - v.begin() << "!!!\n";
 	}
+	const std::vector<int> v2(3, 3);
+	for (int i = 0; i < 5; i++)
+	{
+		if (easyfind(v2, i) == v2.end())
+			std::cout << "Element " << i << " not found!\n";
+		else
+			std::cout << "Element " << i << " found at index " << easyfind(v2, i) - v2.begin() << "!!!\n";
+	}
 	return (0);
 }
