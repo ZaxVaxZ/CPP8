@@ -25,12 +25,9 @@ template <class T> class MutantStack : public std::stack<T>
 			return (stack::c.end());
 		}
 
-
-
 		MutantStack &operator=(const stack &src)
 		{
-			if (this != &src)
-				*this = src;
+			std::stack<T>::operator =(src);
 			return (*this);
 		}
 
