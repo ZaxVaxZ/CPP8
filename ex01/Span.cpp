@@ -15,7 +15,7 @@ Span::Span(unsigned int number): _N(number), _A()
 Span::Span(const Span &copy): _N(copy.size()), _A()
 {
 	srand(time(NULL));
-	_A.insert(copy.begin(), copy.end());
+	_A.insert(copy._A.begin(), copy._A.end());
 }
 
 int Span::longestSpan() const
@@ -72,6 +72,15 @@ unsigned int Span::size() const
 	return _N;
 }
 
+void Span::printNumbers()
+{
+	for (std::multiset<int>::iterator it = _A.begin(); it != _A.end(); it++)	
+	{
+		std::cout << *it << " ";
+	}
+	std::cout << "\n";
+}
+
 std::multiset<int>::iterator Span::begin()
 {
 	return _A.begin();
@@ -82,23 +91,13 @@ std::multiset<int>::iterator Span::end()
 	return _A.end();
 }
 
-std::multiset<int>::const_iterator Span::begin() const
-{
-	return _A.cbegin();
-}
-
-std::multiset<int>::const_iterator Span::end() const
-{
-	return _A.cend();
-}
-
 Span &Span::operator =(const Span &copy)
 {
 	if (&copy != this)
 	{
 		_N = copy.size();
 		_A.clear();
-		_A.insert(copy.begin(), copy.end());
+		_A.insert(copy._A.begin(), copy._A.end());
 	}
 	return *this;
 }

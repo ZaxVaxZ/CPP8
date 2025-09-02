@@ -11,6 +11,7 @@ int main()
 	ms.push(50);
 	for (MutantStack<int>::iterator it = ms.begin(); it != ms.end(); it++)
 		std::cout << *(it) << "\n";
+	std::cout << ms.top() << "\n";
 	return (0);
 }
 

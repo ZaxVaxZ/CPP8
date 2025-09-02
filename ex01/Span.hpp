@@ -33,22 +33,12 @@ class Span
 			if (_A.size() + (std::distance(start, end)) > _N)
 				throw std::exception();
 			_A.insert(start, end);
-		}
-		template <typename T> void	addNumbers  (const T start, const T end)
-		{
-			for (std::multiset<int>::const_iterator iter = _A.begin(); iter != _A.end(); ++iter)
-				if (start == iter || end == iter)
-					throw std::exception();
-			if (_A.size() + (std::distance(start, end)) > _N)
-				throw std::exception();
-			_A.insert(start, end);
-		}
+		};
 		void								addRandoms  (unsigned int count);
 		unsigned int						size 		() const;
-		std::multiset<int>::iterator		begin		();
 		std::multiset<int>::iterator		end  		();
-		std::multiset<int>::const_iterator	begin		() const;
-		std::multiset<int>::const_iterator	end  		() const;
+		std::multiset<int>::iterator		begin		();
+		void								printNumbers();
 
 		Span &operator =(const Span &copy);
 };
